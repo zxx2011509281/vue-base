@@ -1,0 +1,50 @@
+
+/**
+ * [px2em description]
+ * @param  {String} $px              设计图上的px值
+ * @param  {String} $base-font-size: 16px          基础fontSize大小
+ * @return {String}                  计算出的rem值
+ */
+@function px2rem($px, $base-font-size: 75px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2em($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+@mixin clearfix{
+  zoom: 1;
+  &:before{
+    content:"";
+    display: table;
+  }
+  &:after{
+    content:"";
+    display: table;
+    clear:both;
+    overflow: hidden;
+  }
+}
+.clearfix{
+  zoom: 1;
+  &:before{
+    content:"";
+    display: table;
+  }
+  &:after{
+    content:"";
+    display: table;
+    clear:both;
+    overflow: hidden;
+  }
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+
