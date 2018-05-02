@@ -24,7 +24,6 @@ const mutations = {
 const actions = {
   getUserInfoAction({commit, state, rootState}, reqData) {
 
-
       return axios.post(getListAPI, reqData)
         .then(function (rep) {
           if (rep.data.code === "000") {
